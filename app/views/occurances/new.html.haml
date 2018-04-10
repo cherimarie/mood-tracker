@@ -1,0 +1,16 @@
+= form_with model: @occurance, local: true do |form|
+  %p
+    = form.label :when
+    = form.number_field :when
+
+  %p
+    = form.label :severity
+    = form.number_field :severity
+
+  %p
+    = form.label :event_id
+    = form.select(:event_id) do
+      = options_from_collection_for_select(Event.all, :id, :name)
+
+  %p
+    = form.submit

@@ -1,0 +1,10 @@
+%h1 Occurances
+
+%ul
+  - @occurances.each do |o|
+    %li
+      %span= o.event.name
+      %span= o.event.category
+      %span= o.severity
+      %span= o.when
+

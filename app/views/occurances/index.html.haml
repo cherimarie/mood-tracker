@@ -3,8 +3,16 @@
 %ul
   - @occurances.each do |o|
     %li
+      Name:
       %span= o.event.name
+      %br
+      Category:
       %span= o.event.category
+      %br
+      Severity:
       %span= o.severity
+      %br
+      When:
       %span= o.when
 
+-# TODO: Replace this with data viz

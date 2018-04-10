@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to @event
+      redirect_to :occurances
     else
       redirect_to :root
     end
@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    redirect_to :occurances
   end
 
   def update

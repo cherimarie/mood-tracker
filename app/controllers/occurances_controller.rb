@@ -10,7 +10,7 @@ class OccurancesController < ApplicationController
   def create
     @occurance = Occurance.new(occurance_params)
     if @occurance.save
-      redirect_to @occurance
+      redirect_to :occurances
     else
       redirect_to :root
     end
@@ -21,6 +21,7 @@ class OccurancesController < ApplicationController
   end
 
   def edit
+    redirect_to :occurances
   end
 
   def update

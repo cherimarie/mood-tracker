@@ -1,0 +1,19 @@
+!!! 5
+
+%html
+  %head
+    %title MoodTracker
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    %nav
+      %a= link_to 'My Diary', occurances_path
+      %a= link_to 'New Event', new_occurance_path
+
+    = yield
+
+    %footer
+      %p &copy; 2018 Cheri Marie

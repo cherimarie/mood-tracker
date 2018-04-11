@@ -3,16 +3,12 @@
 %ul
   - @occurances.each do |o|
     %li
-      Name:
-      %span= o.event.name
+      = o.event.category.titlecase + ": " + o.event.name
+      - if o.event.category == "mood"
+        %br
+        = "Severity: " + o.severity.to_s
       %br
-      Category:
-      %span= o.event.category
-      %br
-      Severity:
-      %span= o.severity
-      %br
-      When:
-      %span= o.when
+      = "At: " + o.readable_at
+
 
 -# TODO: Replace this with data viz

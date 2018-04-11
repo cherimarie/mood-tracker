@@ -44,4 +44,8 @@ class Occurance < ApplicationRecord
     end
   end
 
+  def readable_at
+    return Time.at(at).to_datetime.strftime("%A, %d %b %Y %l:%M %p")
+  end
+
 end

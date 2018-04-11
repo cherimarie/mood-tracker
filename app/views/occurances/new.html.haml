@@ -1,16 +1,27 @@
 = form_with model: @occurance, local: true do |form|
-  %p
-    = form.label :when
-    = form.number_field :when
+
+  - if @occurance.errors.any?
+    %h2
+      = pluralize(@occurance.errors.count, "error")
+      prohibited this occurance from being saved:
+    %ul
+      - @occurance.errors.full_messages.each do |msg|
+        %li= msg
 
   %p
-    = form.label :severity
-    = form.number_field :severity
+    = form.label :at
+    = form.date_field :at
+    -# TODO: make this more useful- maybe that clockpicker library? and add a "right now" option!
 
   %p
     = form.label :event_id
     = form.select(:event_id) do
       = options_from_collection_for_select(Event.all, :id, :name)
+
+  %p
+    = form.label :severity
+    = form.number_field :severity
+    -# TODO: conditionally display based on category of event selected above
 
   %p
     = form.submit

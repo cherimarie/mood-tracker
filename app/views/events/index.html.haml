@@ -1,8 +1,8 @@
 %h1 Events
 
-- @events.each do |e|
-  %p
-    Name:
-    = e.name
-    Category:
-    = e.category
+%ul
+  - @events.each do |e|
+    %li
+      = e.name
+      ,
+      = e.category

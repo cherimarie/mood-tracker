@@ -1,11 +1,20 @@
 = form_with scope: :event, url: events_path, local: true do |form|
+  - if @event.errors.any?
+    %h2
+      = pluralize(@event.errors.count, "error")
+      prohibited this event from being saved:
+    %ul
+      - @event.errors.full_messages.each do |msg|
+        %li= msg
+
   %p
     = form.label :name
     = form.text_field :name
 
   %p
     = form.label :category
-    = form.text_field :category
+    = form.select(:category) do
+      = options_for_select([["Please select one", ""],["Mood", "mood"], ["Activity", "activity"]])
 
   %p
     = form.submit

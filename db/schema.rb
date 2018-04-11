@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20180410201845) do
   end
 
   create_table "occurances", force: :cascade do |t|
-    t.integer "when"
+    t.integer "at"
     t.integer "severity"
     t.integer "event_id"
     t.datetime "created_at", null: false

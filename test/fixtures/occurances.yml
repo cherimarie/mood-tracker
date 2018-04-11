@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  when: 2018-04-10 13:18:45
-  severity: 1
+  at: 1523405866
+  severity: 8
+  event: good_mood
 
 two:
-  when: 2018-04-10 13:18:45
-  severity: 1
+  at: 1523405866
+  severity: 0
+  event: activity

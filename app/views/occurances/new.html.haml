@@ -1,3 +1,5 @@
+-#TODO: Use JS to show Activity/Mood tabs, validate that only one is selected
+
 = form_with model: @occurance, local: true do |form|
 
   - if @occurance.errors.any?
@@ -10,18 +12,22 @@
 
   %p
     = form.label :at
-    = form.date_field :at
+    = form.date_field :at, required: true
     -# TODO: make this more useful- maybe that clockpicker library? and add a "right now" option!
 
   %p
-    = form.label :event_id
+    = form.label :event_id, "Event"
     = form.select(:event_id) do
-      = options_from_collection_for_select(Event.all, :id, :name)
+      = content_tag(:option,'select one...', value: "")
+      = options_from_collection_for_select(Event.all, :id, :label)
 
   %p
     = form.label :severity
-    = form.number_field :severity
-    -# TODO: conditionally display based on category of event selected above
+    = form.number_field :severity, maximum: 10, minimum: -10
+    %br
+    %small Severity is not required for activities.
 
   %p
     = form.submit
+
+

@@ -14,7 +14,8 @@
       %a= link_to 'New Event', new_event_path
       %a= link_to 'New Occurance', new_occurance_path
 
-    = yield
+    .wrapper
+      = yield
 
     %footer
       %p &copy; 2018 Cheri Marie
